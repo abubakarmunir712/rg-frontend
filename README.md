@@ -1,73 +1,152 @@
-# React + TypeScript + Vite
+# Research Gennie Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern React-based web application that helps researchers identify unexplored areas in academic domains using AI-powered analysis.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **AI-Powered Research Gap Analysis**: Enter a research domain and discover unexplored areas
+- **Advanced Filtering**: Customize your search with year ranges, paper counts, and keywords
+- **History Management**: Save and manage your previous research analyses
+- **Dark/Light Theme**: Toggle between dark and light modes with persistent preferences
+- **Responsive Design**: Fully responsive interface that works on mobile, tablet, and desktop
+- **Accessibility**: WCAG compliant with keyboard navigation and screen reader support
+- **Download Results**: Export your research gaps as PDF or TXT files
 
-## React Compiler
+## 🛠️ Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Framework**: React 19 with TypeScript
+- **Build Tool**: Vite
+- **Styling**: Tailwind CSS v4
+- **UI Components**: shadcn/ui
+- **State Management**: Zustand
+- **Routing**: React Router v6
+- **HTTP Client**: Axios
+- **Testing**: Vitest + React Testing Library + fast-check (Property-Based Testing)
 
-## Expanding the ESLint configuration
+## 📋 Prerequisites
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Node.js 18+ 
+- npm or yarn or pnpm
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🔧 Installation
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd rg-frontend
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+2. Install dependencies:
+```bash
+npm install
 ```
+
+3. Create a `.env` file based on `.env.example`:
+```bash
+cp .env.example .env
+```
+
+4. Update the environment variables in `.env`:
+```env
+VITE_API_BASE_URL=http://localhost:3000/api
+VITE_APP_VERSION=1.0.0
+```
+
+## 🚀 Development
+
+Start the development server:
+```bash
+npm run dev
+```
+
+The application will be available at `http://localhost:5173`
+
+## 🧪 Testing
+
+Run all tests:
+```bash
+npm run test
+```
+
+Run tests with UI:
+```bash
+npm run test:ui
+```
+
+Run tests once (CI mode):
+```bash
+npm run test:run
+```
+
+## 🏗️ Building for Production
+
+Build the application:
+```bash
+npm run build
+```
+
+Preview the production build:
+```bash
+npm run preview
+```
+
+## 📁 Project Structure
+
+```
+src/
+├── components/          # Reusable UI components
+│   ├── common/         # Common components (Loading, Error, Empty states)
+│   ├── layout/         # Layout components (Navbar, Footer, MainLayout)
+│   └── research/       # Research-specific components
+├── pages/              # Page components
+├── store/              # Zustand state management
+├── routes/             # Route configuration
+├── types/              # TypeScript type definitions
+├── utils/              # Utility functions
+└── test/               # Test setup and utilities
+```
+
+## 🎨 Features in Detail
+
+### Theme Support
+- Dark mode by default
+- Persistent theme preference across sessions
+- Smooth transitions between themes
+
+### Research Gap Generation
+- Input validation (minimum 3 characters, no special symbols)
+- Advanced filters for refined searches
+- Real-time processing feedback
+- Auto-save to history
+
+### History Management
+- Search and filter previous analyses
+- Sort by date or topic
+- View full details of past results
+- Delete unwanted entries
+
+### Accessibility
+- Keyboard navigation support
+- Screen reader friendly
+- ARIA labels and roles
+- Logical tab order
+- Focus indicators on all interactive elements
+
+## 🔐 Environment Variables
+
+| Variable | Description | Default |
+|----------|-------------|---------|
+| `VITE_API_BASE_URL` | Backend API base URL | `http://localhost:3000/api` |
+| `VITE_APP_VERSION` | Application version | `1.0.0` |
+
+## 📝 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 👥 Contributing
+
+Contributions are welcome! Please read our [Contributing Guidelines](CONTRIBUTING.md) for details on how to submit pull requests, report issues, and contribute to the project.
+
+## 📧 Contact
+
+[Add contact information here]

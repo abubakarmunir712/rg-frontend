@@ -1,12 +1,22 @@
-
+import { useEffect } from 'react';
+import { MainLayout } from './components/layout';
+import { AppRoutes } from './routes';
+import { useAuthStore } from './store/authStore';
 
 function App() {
+  const { user, checkAuth, logout } = useAuthStore();
+
+  // Check authentication on app load
+  useEffect(() => {
+    checkAuth();
+  }, [checkAuth]);
 
   return (
-    <>
-      <h1 className='text-3xl font-bold text-orange-500'>Hello World</h1>
-    </>
-  )
+    <MainLayout user={user} onLogout={logout}>
+      
+      <AppRoutes />
+    </MainLayout>
+  );
 }
 
-export default App
+export default App;
